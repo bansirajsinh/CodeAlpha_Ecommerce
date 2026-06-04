@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your Aethera account to access your cart and orders.">
+  <title>Login — Aethera</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-card fade-in">
+
+      <div class="auth-logo" style="display: flex; justify-content: center; margin-bottom: 2rem;">
+        <a href="/index.html" class="nav-logo">
+          <svg class="brand-logo" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 22H22L12 2Z" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 6L5 20H19L12 6Z" fill="url(#logo-grad)" opacity="0.15"/>
+            <circle cx="12" cy="13" r="3" stroke="url(#logo-grad)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6C63FF" />
+                <stop offset="100%" stop-color="#FF6584" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="nav-logo-text" style="font-size: 2rem;">AETHERA</span>
+        </a>
+      </div>
+
+      <h1 class="auth-title">Welcome back</h1>
+      <p class="auth-subtitle">Sign in to continue shopping</p>
+
+      <form class="auth-form" id="login-form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input class="form-control" type="email" id="email" name="email"
+                 placeholder="you@example.com" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="input-group">
+            <input class="form-control" type="password" id="password" name="password"
+                   placeholder="Enter your password" autocomplete="current-password" required>
+            <button type="button" class="input-group-btn toggle-password"
+                    data-target="password" aria-label="Toggle password visibility">👁</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-full btn-lg" type="submit" id="login-submit">
+          Sign In
+        </button>
+
+      </form>
+
+      <p class="auth-footer">
+        Don't have an account? <a href="/register.html">Create one →</a>
+      </p>
+
+      <!-- Demo credentials box -->
+      <div class="demo-box" style="margin-top:1.5rem">
+        <strong>Demo Credentials:</strong><br>
+        Email: <code style="color:var(--text)">rahul.sharma@gmail.com</code><br>
+        Password: <code style="color:var(--text)">Password@123</code>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

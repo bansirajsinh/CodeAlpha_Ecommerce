@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aethera – Discover thousands of products: electronics, fashion, books, home & more. Fast delivery, great prices.">
+  <title>Aethera — Premium E-Commerce Store</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- ══ HEADER ════════════════════════════════════════════ -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="/index.html" class="nav-logo" aria-label="Aethera Home">
+        <svg class="brand-logo" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 22H22L12 2Z" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 6L5 20H19L12 6Z" fill="url(#logo-grad)" opacity="0.15"/>
+          <circle cx="12" cy="13" r="3" stroke="url(#logo-grad)" stroke-width="2"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6C63FF" />
+              <stop offset="100%" stop-color="#FF6584" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-text">AETHERA</span>
+      </a>
+
+      <div class="nav-search" role="search">
+        <span class="nav-search-icon" aria-hidden="true">🔍</span>
+        <input type="search" id="search-input"
+               placeholder="Search products, brands…"
+               autocomplete="off" aria-label="Search products">
+      </div>
+
+      <div class="nav-actions">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="/index.html" class="nav-link active" aria-current="page">Home</a>
+          <a href="/orders.html" class="nav-link" id="orders-link">Orders</a>
+        </nav>
+
+        <a href="/cart.html" class="cart-btn" id="cart-btn" aria-label="Shopping Cart">
+          🛒 Cart
+          <span class="cart-badge hidden" id="cart-badge" aria-label="Cart items"></span>
+        </a>
+
+        <!-- Shown when logged in -->
+        <div class="user-menu" id="user-menu" style="display:none" role="navigation" aria-label="User menu">
+          <div class="user-avatar" id="user-avatar" aria-hidden="true">U</div>
+          <span id="user-name" style="font-size:.875rem;font-weight:600"></span>
+          <button onclick="auth.logout()" class="btn btn-secondary btn-sm">Logout</button>
+        </div>
+
+        <!-- Shown when logged out -->
+        <a href="/login.html" class="btn btn-primary btn-sm" id="login-btn">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ══ MAIN ══════════════════════════════════════════════ -->
+  <main class="page-wrapper">
+    <div class="container">
+
+      <!-- Hero Banner -->
+      <section class="page-hero fade-in" aria-label="Hero banner">
+        <h1 class="hero-title">Discover <span>Amazing Products</span></h1>
+        <p class="hero-subtitle">Curated electronics, fashion, books, home décor & more</p>
+      </section>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs" id="category-tabs" role="tablist" aria-label="Product categories">
+        <button class="category-tab active" data-slug="" role="tab" aria-selected="true">All Products</button>
+      </div>
+
+      <!-- Filters and Sort Section -->
+      <div class="filters-bar fade-in" role="search" aria-label="Catalog filters">
+        <!-- Sorting -->
+        <div class="filter-group">
+          <span class="filter-label">Sort By:</span>
+          <select id="sort-select" class="filter-select" aria-label="Sort products">
+            <option value="newest">Newest Arrivals</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="name_asc">Name: A to Z</option>
+          </select>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <span class="filter-label">Price Range ($):</span>
+          <input type="number" id="min-price-input" class="filter-input" placeholder="Min" min="0" aria-label="Minimum Price">
+          <span style="color: var(--text-muted);">to</span>
+          <input type="number" id="max-price-input" class="filter-input" placeholder="Max" min="0" aria-label="Maximum Price">
+        </div>
+
+        <!-- Stock Status Toggle -->
+        <div class="filter-group">
+          <label for="stock-toggle" class="filter-checkbox-label">
+            <input type="checkbox" id="stock-toggle" class="filter-checkbox" aria-label="Show in stock only">
+            Show In-Stock Only
+          </label>
+        </div>
+
+        <!-- Clear Filters button -->
+        <button id="clear-filters-btn" class="btn btn-secondary btn-sm">Reset Filters</button>
+      </div>
+
+      <!-- Section header -->
+      <div class="section-header">
+        <h2 class="section-title" id="section-title">All Products</h2>
+        <p id="section-count" style="color:var(--text-muted);font-size:.875rem"></p>
+      </div>
+
+      <!-- Products Grid -->
+      <section aria-label="Products" id="products-section">
+        <div class="products-grid" id="products-grid" role="list">
+          <!-- Skeleton placeholders shown before JS loads -->
+          <div class="skeleton-card" aria-hidden="true"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text w-75" style="margin-top:.875rem"></div><div class="skeleton skeleton-text w-50"></div><div class="skeleton skeleton-text w-35"></div><div class="skeleton skeleton-btn"></div></div>
+          <div class="skeleton-card" aria-hidden="true"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text w-75" style="margin-top:.875rem"></div><div class="skeleton skeleton-text w-50"></div><div class="skeleton skeleton-text w-35"></div><div class="skeleton skeleton-btn"></div></div>
+          <div class="skeleton-card" aria-hidden="true"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text w-75" style="margin-top:.875rem"></div><div class="skeleton skeleton-text w-50"></div><div class="skeleton skeleton-text w-35"></div><div class="skeleton skeleton-btn"></div></div>
+          <div class="skeleton-card" aria-hidden="true"><div class="skeleton skeleton-img"></div><div class="skeleton skeleton-text w-75" style="margin-top:.875rem"></div><div class="skeleton skeleton-text w-50"></div><div class="skeleton skeleton-text w-35"></div><div class="skeleton skeleton-btn"></div></div>
+        </div>
+      </section>
+
+      <!-- Pagination -->
+      <nav class="pagination" id="pagination" aria-label="Product pagination"></nav>
+
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <p>© 2026 <strong>Aethera</strong> · CodeAlpha Internship Project · Built by Bansirajsinh</p>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top"
+          onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <!-- Scripts: api.js must load first (provides toast, auth, api globals) -->
+  <script src="/js/api.js"></script>
+  <script src="/js/catalog.js"></script>
+</body>
+</html>

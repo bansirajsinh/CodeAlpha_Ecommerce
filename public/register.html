@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Aethera account and start shopping today.">
+  <title>Register — Aethera</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-card fade-in">
+
+      <div class="auth-logo" style="display: flex; justify-content: center; margin-bottom: 2rem;">
+        <a href="/index.html" class="nav-logo">
+          <svg class="brand-logo" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 22H22L12 2Z" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 6L5 20H19L12 6Z" fill="url(#logo-grad)" opacity="0.15"/>
+            <circle cx="12" cy="13" r="3" stroke="url(#logo-grad)" stroke-width="2"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6C63FF" />
+                <stop offset="100%" stop-color="#FF6584" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="nav-logo-text" style="font-size: 2rem;">AETHERA</span>
+        </a>
+      </div>
+
+      <h1 class="auth-title">Create account</h1>
+      <p class="auth-subtitle">Join thousands of happy shoppers</p>
+
+      <form class="auth-form" id="register-form" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="full_name">Full Name <span style="color:var(--danger)">*</span></label>
+          <input class="form-control" type="text" id="full_name" name="full_name"
+                 placeholder="John Doe" autocomplete="name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address <span style="color:var(--danger)">*</span></label>
+          <input class="form-control" type="email" id="email" name="email"
+                 placeholder="you@example.com" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone <span style="color:var(--text-dim)">(optional)</span></label>
+          <input class="form-control" type="tel" id="phone" name="phone"
+                 placeholder="+91-9876543210" autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password <span style="color:var(--danger)">*</span></label>
+          <div class="input-group">
+            <input class="form-control" type="password" id="password" name="password"
+                   placeholder="Min. 8 characters" autocomplete="new-password" required>
+            <button type="button" class="input-group-btn toggle-password"
+                    data-target="password" aria-label="Toggle password visibility">👁</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="confirm_password">Confirm Password <span style="color:var(--danger)">*</span></label>
+          <div class="input-group">
+            <input class="form-control" type="password" id="confirm_password" name="confirm_password"
+                   placeholder="Repeat your password" autocomplete="new-password" required>
+            <button type="button" class="input-group-btn toggle-password"
+                    data-target="confirm_password" aria-label="Toggle confirm password visibility">👁</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-full btn-lg" type="submit">
+          Create Account
+        </button>
+
+      </form>
+
+      <p class="auth-footer">
+        Already have an account? <a href="/login.html">Sign in →</a>
+      </p>
+
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>
